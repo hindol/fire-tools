@@ -1,2 +1,5 @@
-^{:auto-bundle :webpack}
-{:main fire-tools}
+^{:auto-bundle :webpack
+  :watch-dirs  ["src"]
+  :css-dirs    ["resources/public/css"]
+  :open-url    false}
+{:main com.github.hindol.fire-tools}
