@@ -1,6 +1,8 @@
 {:deps    {org.clojure/clojure       {:mvn/version "1.10.0"}
-           org.clojure/clojurescript {:mvn/version "1.10.773"}}
  :paths   ["src" "resources"]
+           org.clojure/clojurescript {:mvn/version "1.10.773"}
+           rum/rum                   {:mvn/version "0.12.8"}
+           clj-commons/citrus        {:mvn/version "3.3.0"}}
  :aliases {:dev
            {:extra-deps {com.bhauman/figwheel-main       {:mvn/version "0.2.15"}
                          com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}}}}
