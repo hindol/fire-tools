@@ -79,6 +79,19 @@
         [:div.navbar-nav]
         contents)]]]))
 
+(rum/defc Breadcrumb
+  [items]
+  [:nav {:aria-label "breadcrumb"}
+   (into
+    [:ol.breadcrumb]
+    (for [{:keys [href label active?]} items]
+      [:li.breadcrumb-item
+       {:class        (when active? "active")
+        :aria-current (when active? "page")}
+       (if active?
+         label
+         [:a {:href href} label])]))])
+
 (rum/defc Main
   [& contents]
   [:div.container-lg
@@ -105,5 +118,7 @@
 
 (rum/mount (App (Navbar (NavLink "Home")
                         (NavLink "About"))
-                (Main (Counter reconciler)))
+                (Main (Breadcrumb [{:href "#" :label "Home"}
+                                   {:href "#" :label "F.I.R.E. Tools" :active? true}])
+                      (Counter reconciler)))
            (.getElementById js/document "app"))
